@@ -34,7 +34,7 @@ class WIDER(object):
                 bboxes = []
                 bbx0 = bbx[0]
                 for i in range(bbx0.shape[0]):
-                    xmin, ymin, xmax, ymax = bbx0[i]
-                    bboxes.append((int(xmin), int(ymin), int(xmax), int(ymax)))
+                    xmin, ymin, w, h = bbx0[i]
+                    bboxes.append((int(xmin), int(ymin), int(xmin) + int(w), int(ymin) + int(h)))
                 yield DATA(path_of_image, bboxes)
                     
