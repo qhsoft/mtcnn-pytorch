@@ -304,6 +304,10 @@ class MtcnnDetector(object):
 
             cls_map_np = image_tools.convert_chwTensor_to_hwcNumpy(cls_map.cpu())
             reg_np = image_tools.convert_chwTensor_to_hwcNumpy(reg.cpu())
+
+            # del cls_map
+            # del reg
+            # del feed_imgs
             # print(cls_map_np.shape, reg_np.shape) # cls_map_np = (1, n, m, 1) reg_np.shape = (1, n, m 4)
             # time.sleep(5)
             # landmark_np = image_tools.convert_chwTensor_to_hwcNumpy(landmark.cpu())

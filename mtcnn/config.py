@@ -13,10 +13,11 @@ LOG_DIR = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))+"/log"
 USE_CUDA = True
 
 
-TRAIN_BATCH_SIZE = 512
+TRAIN_BATCH_SIZE = 2048 #512
 
 TRAIN_LR = 0.01
 
+START_EPOCH = 1
 END_EPOCH = 10
 
 

@@ -21,14 +21,14 @@
 
 # Training
   * preparing data for P-Net
-    * run > python mtcnn/data_preprocessing/gen_Pnet_train_data.py
-    * run > python mtcnn/data_preprocessing/assemble_pnet_imglist.py
+    * run > python mtcnn/data_preprocess/gen_Pnet_train_data.py
+    * run > python mtcnn/data_preprocess/assemble_pnet_imglist.py
   * train P-Net
     * run > python mtcnn/train_net/train_p_net.py
     
   * preparing data for R-Net
-    * run > python mtcnn/data_preprocessing/gen_Rnet_train_data.py (maybe you should change the pnet model path)
-    * run > python mtcnn/data_preprocessing/assemble_rnet_imglist.py
+    * run > python mtcnn/data_preprocess/gen_Rnet_train_data.py (maybe you should change the pnet model path)
+    * run > python mtcnn/data_preprocess/assemble_rnet_imglist.py
   * train R-Net
     * run > python mtcnn/train_net/train_r_net.py
   

@@ -8,7 +8,7 @@ import numpy as np
 
 if __name__ == '__main__':
 
-    '''
+    #'''
     pnet, rnet, onet = create_mtcnn_net(p_model_path="./original_model/pnet_epoch.pt", r_model_path="./original_model/rnet_epoch.pt", o_model_path="./original_model/onet_epoch.pt", use_cuda=False)
     mtcnn_detector = MtcnnDetector(pnet=pnet, rnet=rnet, onet=onet, min_face_size=24)
 
@@ -30,4 +30,5 @@ if __name__ == '__main__':
     #cv2.imshow("aa",img)
     img_bg = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     vis_face(img_bg,boxes,landmarks,'r_4.jpg')
+    '''
 

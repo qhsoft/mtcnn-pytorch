@@ -27,7 +27,7 @@ def compute_accuracy(prob_cls, gt_cls):
     return torch.div(torch.mul(torch.sum(right_ones),float(1.0)),float(size))  ## divided by zero meaning that your gt_labels are all negative, landmark or part
 
 
-def train_pnet(model_store_path, end_epoch,imdb,
+def train_pnet(model_store_path,start_epoch, end_epoch,imdb,
               batch_size,frequent=10,base_lr=0.01,use_cuda=True):
 
     if not os.path.exists(model_store_path):
@@ -35,6 +35,13 @@ def train_pnet(model_store_path, end_epoch,imdb,
 
     lossfn = LossFn()
     net = PNet(is_train=True, use_cuda=use_cuda)
+    
+    store_model_file=os.path.join(model_store_path,"pnet_epoch_%d.pt" % (start_epoch-1))
+    print(store_model_file)
+    if os.path.exists(store_model_file):
+        print("load model",store_model_file)
+        net.load_state_dict(torch.load(store_model_file))
+
     net.train()
 
     if use_cuda:
@@ -44,7 +51,7 @@ def train_pnet(model_store_path, end_epoch,imdb,
     train_data=TrainImageReader(imdb,12,batch_size,shuffle=True)
 
     frequent = 10
-    for cur_epoch in range(1,end_epoch+1):
+    for cur_epoch in range(start_epoch,end_epoch+1):
         train_data.reset() # shuffle
 
         for batch_idx,(image,(gt_label,gt_bbox,gt_landmark))in enumerate(train_data):
