@@ -58,7 +58,7 @@ class MtcnnDetector(object):
                  onet = None,
                  min_face_size=12,
                  stride=2,
-                 threshold=[0.6, 0.7, 0.7],
+                 threshold=[0.6, 0.5, 0.7],
                  scale_factor=0.709,
                  ):
 
